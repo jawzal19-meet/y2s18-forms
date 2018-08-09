@@ -1,0 +1,10 @@
+<!doctype html>
+<html>
+<head>
+    <title>Student: {{ student.name }}</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+	<form method="post" action="{{ url_for('update_lab_status', finished_lab=student.finished_lab) }}">
+		<input type="submit" value="edit">
+	</form>

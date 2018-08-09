@@ -1,6 +1,13 @@
 from databases import *
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, redirect, url_for, request
 app = Flask(__name__)
+
+
+@app.route('/delete/<int:student_id>',methods=['POST'])
+def delete_student_id(student_id):
+	delete_by_id(student_id)
+	return redirect(url_for('home'))
+
 
 @app.route('/')
 def home():

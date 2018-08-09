@@ -56,6 +56,12 @@ def update_lab_status(name, finished_lab):
 	student_object.finished_lab = finished_lab
 	session.commit()
 
+def delete_by_id(student_id):
+    student = session.query(Student).filter_by(
+        student_id=student_id).first()
+    session.delete(student)
+    session.commit()
+
 def query_by_id(student_id):
     student = session.query(Student).filter_by(
         student_id=student_id).first()
